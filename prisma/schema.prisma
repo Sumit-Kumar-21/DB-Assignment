@@ -15,7 +15,7 @@ datasource db {
 
 model Product {
   id           Int               @id @default(autoincrement())
-  name         String
+  P_name       String
   desc         String
   SKU          String
   categories   Product_Category  @relation(fields: [category_id], references: [id])
@@ -32,7 +32,7 @@ model Product {
 
 model Product_Category {
   id          Int       @id @default(autoincrement())
-  name        String
+  PC_name     String    @unique
   desc        String
   created_at  DateTime  @default(now())
   modified_at DateTime  @updatedAt
@@ -51,7 +51,7 @@ model Product_Inventory {
 
 model Product_Discount {
   id               Int       @id @default(autoincrement())
-  name             String
+  PD_name          String
   desc             String
   discount_percent Decimal
   active           Boolean
